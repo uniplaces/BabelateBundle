@@ -1,0 +1,18 @@
+# Doctrine Configuration
+doctrine_mongodb:
+    connections:
+        default:
+            server: mongodb://localhost:27017
+            options:
+                connect: true
+        translation:
+            server: mongodb://localhost:27017
+            options:
+                connect: true
+    document_managers:
+        default:
+            auto_mapping: true
+            database: default_database
+        translation:
+            database: translations
+            auto_mapping: true
