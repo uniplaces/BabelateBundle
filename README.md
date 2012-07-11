@@ -14,9 +14,9 @@ Tested on MacOS X 10.7.4
 
 ### Configuring Babelate
 
-In BabelateBundle/Resources/config/parameters.yml.sample you can find the main parameters Babelate relies on.
+In BabelateBundle/Resources/doc/parameters.yml.sample you can find the main parameters Babelate relies on.
 
-You can also find the doctrine configuration in BabelateBundle/Resources/config/config.yml.sample
+You can also find the doctrine configuration in BabelateBundle/Resources/doc/config.yml.sample
 
 Define each bundle you will be translating along with it's directory as in the sample file.
 
