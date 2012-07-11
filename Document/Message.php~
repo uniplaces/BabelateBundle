@@ -1,0 +1,37 @@
+<?php
+
+namespace Vasco\BabelateBundle\Document;
+
+use Doctrine\ODM\MongoDB\Mapping\Annotations as ODM;
+
+/**
+ * @ODM\Document(collection="messages")
+ */
+class Message
+{
+    /**
+     * @ODM\Id 
+     */
+    private $id;
+    
+    /**
+     * @ODM\String
+     */
+    protected $translation_key;
+    
+    /**
+     * @ODM\String
+     */
+    protected $domain;
+    
+    /**
+     * @ODM\String 
+     */
+    protected $bundlename;
+    
+    /**
+     * @ODM\Hash 
+     */
+    protected $message_collection;
+    
+}

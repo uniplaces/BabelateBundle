@@ -1,0 +1,40 @@
+{# src/Uniplaces/BabelateBundle/Resources/views/Babelate/show_key.html.twig #}
+
+{% set size=45 %}
+
+{% block title "Babelate" %}
+
+{% block content_header '' %}
+
+{% block content %}
+    <h1><a href="{{ path('show_bundles') }}">Bundles</a> - 
+        <a href="{{ path('show_domains', {'bundle': bundlename}) }}">{{bundlename}}</a> - 
+        <a href="{{ path('show_keys', {'bundle': bundlename, 'domain': domain}) }}">{{domain}}</a></h1>
+    <ul id="{{bundlename}}-{{domain}}-{{key}}-list">
+        <center>
+        {{key}}
+        <p>
+        <label>{{main_language}}</label>
+        {% if main_message|length > 40 %}
+            <textarea cols=40 rows=10 readonly>{{main_message}}</textarea>
+        {% else %}
+            <input type="text" value="{{main_message}}" size="{{size}}" readonly></input>
+        {% endif %}
+        <p>
+        
+
+        <form action="{{ path('update_key', {'bundle': bundlename, 'domain': domain, 'key': key}) }}" method="post">
+        {% for locale, translation in message_collection %}
+            <label>{{locale}}</label>
+            {% if main_message|length > 40 %}
+                <textarea name="{{ locale }}" id="{{ locale }}" cols=40 rows=10>{{translation}}</textarea>
+            {% else %}
+                <input type="text" value="{{translation}}" name="{{ locale }}" id="{{ locale }}" size="{{size}}"></input>
+            {% endif %}
+            <p>
+        {% endfor %} 
+        <input type="submit">
+        </form>
+        </center>
+    </ul>
+{% endblock %}

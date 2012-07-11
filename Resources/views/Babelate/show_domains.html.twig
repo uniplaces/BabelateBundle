@@ -1,0 +1,16 @@
+{# src/Uniplaces/BabelateBundle/Resources/views/Babelate/show_domains.html.twig #}
+
+{% block title "Babelate" %}
+
+{% block content_header '' %}
+
+{% block content %}
+    <h1><a href="{{ path('show_bundles') }}">Bundles</a> - {{ bundlename }}</h1>
+    <ul id="{{bundlename}}-domain-list">
+
+        {% for domain in domains %}
+            <li><a href="{{ path('show_keys', {'bundle': bundlename, 'domain': domain}) }}">{{domain}}</a></li>
+        {% endfor %}
+
+    </ul>
+{% endblock %}

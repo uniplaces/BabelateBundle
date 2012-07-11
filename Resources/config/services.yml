@@ -1,0 +1,7 @@
+parameters:
+#    uniplaces_babelate.example.class: Uniplaces\BabelateBundle\Example
+
+services:
+#    uniplaces_babelate.example:
+#        class: %uniplaces_babelate.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

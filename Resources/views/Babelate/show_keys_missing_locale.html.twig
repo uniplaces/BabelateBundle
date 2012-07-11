@@ -1,0 +1,22 @@
+{# src/Uniplaces/BabelateBundle/Resources/views/Babelate/show_keys_missing_locale.html.twig #}
+
+{% block title "Babelate" %}
+
+{% block content_header '' %}
+
+{% block content %}
+    <h1><a href="{{ path('show_bundles') }}">Bundles</a> - 
+        <a href="{{ path('show_domains', {'bundle': bundlename}) }}">{{ bundlename }}</a> -
+        <a href="{{ path('show_keys', {'bundle': bundlename, 'domain': domain}) }}">{{ domain }}</a></h1>
+    <ul id="{{bundlename}}-{{domain}}-list">
+
+        <label>Keys missing {{locale}}</label><p>
+        
+        {% for key in keys %}
+            <li>
+                <a href="{{ path('show_key', {'bundle': bundlename, 'domain': domain, 'key': key}) }}">{{key}}</a>
+            </li>
+        {% endfor %}
+        
+    </ul>
+{% endblock %}
