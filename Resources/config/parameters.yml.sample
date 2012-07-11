@@ -1,0 +1,9 @@
+parameters:
+    babelate_bundles:
+      core: core_bundle_directory
+      listings: listings_bundle_directory
+      users: users_bundle_directory
+    babelate_main_language:   en
+    babelate_target_languages: [pt, es]
+    babelate_target_domains: [messages, validators, FOSUserBundle]
+    babelate_clear_db: true
