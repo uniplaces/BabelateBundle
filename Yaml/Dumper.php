@@ -25,5 +25,7 @@ class Dumper
             }
         }
         file_put_contents($file, $output);
+        
+        return true;
     }
 }
