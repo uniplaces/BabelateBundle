@@ -21,6 +21,8 @@ show_key:
 update_key:
     pattern: /update_key/{bundle}/{domain}/{key}
     defaults: { _controller: UniplacesBabelateBundle:Babelate:updateKey }
+    requirements:
+      _method: POST
 
 show_keys_missing_locale:
     pattern: /show_keys_missing_locale/{bundle}/{domain}/{locale}
