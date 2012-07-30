@@ -83,7 +83,7 @@ class BabelateImportCommand extends ContainerAwareCommand
                         'domain' => $domain,
                         'bundlename' => $bundlename));
             // Escape escaped double quotes (from our exportContents)
-            $translation = str_replace('\\"', '"', $translation);
+            $translation = str_replace('\"', '"', $translation);
             if (!empty($translation_entry)) {
                 $msgs = $translation_entry->getMessageCollection();
                 //$msgs = $msgs + array($locale => $translation);
