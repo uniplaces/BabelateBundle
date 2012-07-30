@@ -53,7 +53,7 @@ class BabelateExportCommand extends ContainerAwareCommand
         foreach($bundles as $target_bundle => $dir) {
             foreach($domains as $target_domain) {
                 foreach($languages as $target_locale) {
-                    $filename = "/tmp/$target_bundle.$target_domain.$target_locale.yml";
+                    $filename = "$dir/$target_domain.$target_locale.yml";
                     if (!$this->exportContents($filename, $target_bundle, $target_locale, $target_domain)) {
                         $output->writeln("<error>Target: $target_bundle.$target_domain.$target_locale does not exist in the database!</error>");
                     } else {
