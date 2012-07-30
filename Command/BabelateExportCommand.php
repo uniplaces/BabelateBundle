@@ -53,7 +53,7 @@ class BabelateExportCommand extends ContainerAwareCommand
         foreach($bundles as $target_bundle => $dir) {
             foreach($domains as $target_domain) {
                 foreach($languages as $target_locale) {
-                    $filename = "$dir/$target_domain.$target_locale.yml";
+                    $filename = "$dir/Resources/translations/$target_domain.$target_locale.yml";
                     if (!$this->exportContents($filename, $target_bundle, $target_locale, $target_domain)) {
                         $output->writeln("<error>Target: $target_bundle.$target_domain.$target_locale does not exist in the database!</error>");
                     } else {
@@ -83,26 +83,13 @@ class BabelateExportCommand extends ContainerAwareCommand
             $message_collection = $specific_message->getMessageCollection();
             foreach ($message_collection as $specific_locale => $translated_message) {
                 if (strcmp($specific_locale, $locale) == 0) {
-                    //array_push($messages_to_dump, array($specific_message->getTranslationKey() => $translated_message));
-                    if(strpos($translated_message, '"')) {
-                        print_r($translated_message);
-                        //$translated_message = str_replace('"', '\"', $translated_message);
-                    }
                     $messages_to_dump[$specific_message->getTranslationKey()] = $translated_message;
                 }
             }
         }
         ksort($messages_to_dump);
-        //print_r($messages_to_dump);
         if(count($messages_to_dump) > 0) {
-            //$dumper = new Dumper();
-            //$dumped_yaml = $dumper->dump($messages_to_dump, 20);
-            //$dumped_yaml = str_replace('\r\n', '\n', $dumped_yaml);
-            // Escape quotes
-            //$dumped_yaml = str_replace('"', '\"', $dumped_yaml);
-            //print_r("Dumping into file: $filename\n");
             Dumper::dump($messages_to_dump, $filename);
-            //file_put_contents($filename, $dumped_yaml);
             return true;
         } else {
             return false;
