@@ -82,7 +82,8 @@ class BabelateExportCommand extends ContainerAwareCommand
         foreach($translation_entries as $specific_message) {
             $message_collection = $specific_message->getMessageCollection();
             foreach ($message_collection as $specific_locale => $translated_message) {
-                if (strcmp($specific_locale, $locale) == 0) {
+                $trimmed_msg = \trim($translated_message);
+                if (!empty($trimmed_msg) && strcmp($specific_locale, $locale) == 0) {
                     $messages_to_dump[$specific_message->getTranslationKey()] = $translated_message;
                 }
             }

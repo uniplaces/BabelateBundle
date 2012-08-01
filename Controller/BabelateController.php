@@ -159,9 +159,10 @@ class BabelateController extends Controller
         $message_collection = $entry_to_update->getMessageCollection();
         foreach($target_languages as $target_locale) {
             $new_translation = $request->get($target_locale, null);
-            if((strcmp($new_translation, '') == 0) && isset($message_collection[$target_locale])) {
+            $trimmed_translation = \trim($new_translation);
+            if((empty($trimmed_translation) && !(empty($message_collection[$target_locale])))) {
                 unset($message_collection[$target_locale]);
-            } else if(!is_null($new_translation)) {
+            } else if(!empty($trimmed_translation)) {
                 $message_collection[$target_locale] = $new_translation;
             }
         }
